@@ -9,27 +9,28 @@
 <body>
     <div class="container">
     <div class="header">
-        <h2 id="heading">Enter <span class="classId">Class Id</span></h2>
-        <div class="searchClass">
-            <form class="form">
-                <input type="text" id="classIdInput" placeholder="Enter Class ID" autocomplete="off" value="">
-                <button type="submit" id="searchBtn">
-                    <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" aria-hidden="true" focusable="false" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="m21.426 11.095-17-8A.999.999 0 0 0 3.03 4.242L4.969 12 3.03 19.758a.998.998 0 0 0 1.396 1.147l17-8a1 1 0 0 0 0-1.81zM5.481 18.197l.839-3.357L12 12 6.32 9.16l-.839-3.357L18.651 12l-13.17 6.197z"></path></svg>
-                </button>
-            </form>
-        </div>
         <button id="mode"><i class="fa-solid fa-moon"></i></button>
+    </div>
+    <div class="searchClass">
+        <h2 id="heading">Enter <span class="classIdLabel">Class Id</span></h2>
+        <form class="form">
+            <input type="text" id="classId" class="inputFeild" placeholder="Enter Class ID" autocomplete="off" value="">
+            <button type="submit" id="searchBtn" class="btn">
+                <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" aria-hidden="true" focusable="false" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="m21.426 11.095-17-8A.999.999 0 0 0 3.03 4.242L4.969 12 3.03 19.758a.998.998 0 0 0 1.396 1.147l17-8a1 1 0 0 0 0-1.81zM5.481 18.197l.839-3.357L12 12 6.32 9.16l-.839-3.357L18.651 12l-13.17 6.197z"></path></svg>
+            </button>
+            <button type="reset" class="btn" id="resetBtn"><i class="fa-solid fa-arrows-rotate"></i></button>
+        </form>
     </div>
         <div class="data">
             <div class="addTask">
-                <form action="">
-                    <input type="text">
-                    <button type="submit">Add</button>
+                <form class="form">
+                    <input type="text" id="addTaskInput" class="inputFeild" placeholder="Enter Task Here" value="" autocomplete="off">
+                    <button type="submit" id="addTaskBtn" class="btn"><i class="fa-regular fa-square-plus"></i></button>
                 </form>
             </div>
             <div class="collections">
                 <div class="empty">
-                    <h3>Be the first one to post</h3>
+                    <p>Be the first one to post</p>
                 </div>
                 <div class="dataFound">
 

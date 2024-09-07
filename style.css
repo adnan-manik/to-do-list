@@ -3,8 +3,22 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    outline: none;
+    border: none;
 }
 
+.btn{
+    font-size: 1em;
+    outline: none;
+    border: none;
+    border-radius: 6px;
+    margin-left: 10px;
+    padding: 14px ;
+}
+
+.btn i{
+    color: white;
+}
 
 .header{
     display: flex;
@@ -15,13 +29,8 @@
     padding: 12px;
 }
 
-.classId{
+.classIdLabel{
     color: hsl(27, 84%, 57%);
-}
-
-.header button {
-    outline: none;
-    border: none;
 }
 
 #mode{
@@ -31,17 +40,27 @@
     font-size: 1.2em;
 }
 
+.searchClass{
+    width: 80%;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 2%;
+}
+
 #searchBtn{
     background-color:   hsl(27, 84%, 57%);
-    border-radius: 6px;
-    margin-left: 10px;
-    padding: 14px ;
+
+}
+
+#resetBtn{
+    background-color: hsl(207, 71%, 57%);
 }
 
 #searchBtn svg{
     display: flex;
     align-items: center;
-    transform: scale(1.5);
+    transform: scale(1.3);
 }
 
 #searchBtn svg path{
@@ -53,29 +72,37 @@
     align-items: stretch;
 }
 
-#classIdInput{
+.inputFeild {
     font-size: 1em;
     background-color: hsl(0, 0%, 90%);
     padding: 8px;
-    width: 200px;
+    width: 250px;
     border-color: transparent;
     border-radius: 6px;
 }
 
-#classIdInput:focus-visible{
+.inputFeild:focus-visible{
     outline: none   ;
-    background-color: transparent;
-    border: 1px solid hsl(207, 74%, 74%);
-}
-
-#classIdInput:focus{
     background-color: transparent;
     border: 1px solid hsl(207, 74%, 74%);
     box-shadow: 0px 0px 2px hsl(207, 68%, 81%);
 }
 
+
 .data{
-    width: 90%;
+    width: 80%;
     margin: auto;
-    
+    margin-top: 2%;
+    box-shadow: 0px 4px 12px hsl(0, 0%, 80%);
+    padding: 2%;
+    border-radius: 4px;
+}
+
+#addTaskInput{
+    width: 100%;
+    text-overflow: clip;
+}
+
+#addTaskBtn{
+    background-color: hsl(207, 71%, 57%);
 }
