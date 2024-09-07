@@ -14,11 +14,10 @@
             <button id="mode"><i class="fa-solid fa-moon"></i></button>
         </div>
         <div class="searchClass">
-            <h1 id="heading">Enter <span class="classIdLabel">Class Id</span></h1>
-            <form class="form">
-                <input type="text" id="classId" class="inputFeild" placeholder="Enter Class ID" autocomplete="off"
-                    value="">
-                <button type="submit" id="searchBtn" class="btn">
+            <h1><span id="heading">Enter</span> <span class="classIdLabel">Class Id</span></h1>
+            <form class="form" id="searchForm">
+                <input type="text" id="classId" class="inputFeild" placeholder="Enter Class ID"     autocomplete="off" value="" required>
+                <button type="submit" id="searchBtn" class="btn" >
                     <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24"
                         aria-hidden="true" focusable="false" height="1em" width="1em"
                         xmlns="http://www.w3.org/2000/svg">
@@ -32,9 +31,8 @@
         </div>
         <div class="data">
             <div class="addTask">
-                <form class="form">
-                    <input type="text" id="addTaskInput" class="inputFeild" placeholder="Enter Task Here" value=""
-                        autocomplete="off">
+                <form class="form" id="taskForm">
+                    <input type="text" id="addTaskInput" class="inputFeild" placeholder="Enter Task Here" value="" autocomplete="off">
                     <button type="submit" id="addTaskBtn" class="btn"><i class="fa-regular fa-square-plus"></i></button>
                     <button type="reset" class="btn" style="background-color: hsl(210, 26%, 80%);"><i
                             class="fa-solid fa-arrows-rotate"></i></button>
@@ -45,16 +43,12 @@
                     <p>Be the first one to post</p>
                 </div>
                 <div class="dataFound">
-                    <ul class="taskList">
-                        <li class="task">
-                                <div class="link">
-                                    <a href="http://adnan-manik.github.io/dogAnimation"
-                                        target="_blank">http://adnan-manik.github.io/dogAnimation</a>
-                                </div>
-                                <button type="button" class="btn" id="favBtn"><i class="fa-solid fa-star"></i></button>
+                    <ul id="taskList">
+                        <li class="task" id="task0">
+                                <a class="link" target="_blank"></a>
+                                <button type="button" class="btn" id="favBtn"><i class="fa-regular fa-star"></i></button>
                                 <button type="button" class="btn" id="deleteBtn"><i
                                         class="fa-solid fa-trash"></i></button>
-                          
                         </li>
                     </ul>
                 </div>
