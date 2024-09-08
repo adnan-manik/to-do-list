@@ -10,6 +10,7 @@ const found = document.querySelector('.dataFound');
 const empty = document.querySelector('.empty');
 
 let currentClassIndex, classId;
+let data = [];
 
 class classTask {
     constructor(classId) {
@@ -30,7 +31,6 @@ class classTask {
     }
 }
 
-let data = [];
 
 
 function displaySavedData(index) {
@@ -46,7 +46,7 @@ function displaySavedData(index) {
         found.style.display = "block";
     }
     else {
-        empty.style.display = 'block';
+        empty.style.display = 'flex';
         found.style.display = "none";
     }
 }
@@ -71,7 +71,7 @@ searchForm.addEventListener("submit", (e) => {
         }
     }
 
-    empty.style.display = 'block';
+    empty.style.display = 'flex';
     found.style.display = "none";
     currentClassIndex = data.length;
 });
@@ -110,10 +110,18 @@ taskForm.addEventListener("submit", (e) => {
 })
 
 function deleteTask(button) {
-    console.log(button);
-    let id = button.id;
+
+    const id = button.id;
 
     button.parentNode.remove();
     data[currentClassIndex].tasks.splice(id, 1);
     displaySavedData(currentClassIndex);
+}
+
+function deleteAllTasks(){
+
+    // Add pop up window!!!!
+
+    data.splice(currentClassIndex, 1);
+    
 }
