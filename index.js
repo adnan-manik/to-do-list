@@ -19,13 +19,21 @@ class classTask {
         this.taskCount = 0;
 
     }
+    updateId(){
+        for (let i = 0; i < this.tasks.length; i++) {
+            
+            this.tasks[i].id = `task${i}`;
+            this.tasks[i].querySelector('.dltBtn').id = i;
+            
+        }
+    }
     pushTask(link) {
         const newTask = task.cloneNode(true);
-
-        newTask.querySelector('.link').href = link;
+        
         newTask.querySelector('.link').textContent = link;
+        newTask.querySelector('.link').href = link;
         newTask.id = `task${this.taskCount}`;
-        newTask.lastChild.id = this.taskCount;
+        newTask.querySelector('.dltBtn').id = this.taskCount;
         this.taskCount++;
         this.tasks.push(newTask);
     }
@@ -55,7 +63,8 @@ function displaySavedData(index) {
 searchForm.addEventListener("submit", (e) => {
     e.preventDefault();
 
-    classId = classIdSearchBar.value;
+    classId = classIdSearchBar.value.trim();
+    classIdSearchBar.value = classId;
     headingText.textContent = "Class";
     classIdLabel.textContent = classId;
 
@@ -91,7 +100,8 @@ searchForm.addEventListener("reset", (e) => {
 taskForm.addEventListener("submit", (e) => {
 
     e.preventDefault();
-    const link = addTaskInput.value;
+    const link = addTaskInput.value.trim();
+    addTaskInput.value = link;
     addTaskInput.value = '';
 
     if (!classId) {
@@ -111,10 +121,14 @@ taskForm.addEventListener("submit", (e) => {
 
 function deleteTask(button) {
 
-    const id = button.id;
-
+    let id = button.id;
+    
     button.parentNode.remove();
     data[currentClassIndex].tasks.splice(id, 1);
+
+    data[currentClassIndex].updateId();
+    data[currentClassIndex].taskCount--;
+    
     displaySavedData(currentClassIndex);
 }
 
