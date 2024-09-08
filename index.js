@@ -1,13 +1,9 @@
 const headingText = document.getElementById('heading');
 const classIdLabel = document.querySelector('.classIdLabel');
 const classIdSearchBar = document.getElementById('classId');
-const searchBtn = document.getElementById('searchBtn');
 const addTaskInput = document.getElementById('addTaskInput');
-const addTaskBtn = document.getElementById('addTaskBtn');
 const task = document.querySelector('.task');
 const taskList = document.getElementById('taskList');
-const favBtn = document.getElementById('favBtn');
-const delBtn = document.getElementById('deleteBtn');
 const taskForm = document.getElementById('taskForm');
 const searchForm = document.getElementById('searchForm');
 const found = document.querySelector('.dataFound');
@@ -28,6 +24,7 @@ class classTask {
         newTask.querySelector('.link').href = link;
         newTask.querySelector('.link').textContent = link;
         newTask.id = `task${this.taskCount}`;
+        newTask.lastChild.id = this.taskCount;
         this.taskCount++;
         this.tasks.push(newTask);
     }
@@ -37,17 +34,21 @@ let data = [];
 
 
 function displaySavedData(index) {
-    console.log(index);
 
     const objTasks = data[index].tasks;
     taskList.replaceChildren();
 
-    for (let i = 0; i < objTasks.length; i++) {
-        taskList.appendChild(objTasks[i]);
+    if (objTasks.length > 0) {
+        for (let i = 0; i < objTasks.length; i++) {
+            taskList.appendChild(objTasks[i]);
+        }
+        empty.style.display = 'none';
+        found.style.display = "block";
     }
-
-    empty.style.display = 'none';
-    found.style.display = "block";
+    else {
+        empty.style.display = 'block';
+        found.style.display = "none";
+    }
 }
 
 
@@ -107,3 +108,12 @@ taskForm.addEventListener("submit", (e) => {
     }
     displaySavedData(currentClassIndex);
 })
+
+function deleteTask(button) {
+    console.log(button);
+    let id = button.id;
+
+    button.parentNode.remove();
+    data[currentClassIndex].tasks.splice(id, 1);
+    displaySavedData(currentClassIndex);
+}
