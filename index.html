@@ -29,10 +29,15 @@
                 <button type="reset" class="btn" id="resetBtn"><i class="fa-solid fa-arrows-rotate"></i></button>
             </form>
         </div>
+        <div class="initial">
+            <p>
+                Please Enter A Class Id to insert Tasks!
+            </p>
+        </div>
         <div class="data">
             <div class="addTask">
                 <form class="form" id="taskForm">
-                    <input type="text" id="addTaskInput" class="inputFeild" placeholder="Enter Task Here" value="" autocomplete="off">
+                    <input type="text" id="addTaskInput" class="inputFeild" placeholder="Enter Task Here" value="" autocomplete="off" required>
                     <button type="submit" id="addTaskBtn" class="btn"><i class="fa-regular fa-square-plus"></i></button>
                     <button type="reset" class="btn" style="background-color: hsl(210, 26%, 80%);"><i
                             class="fa-solid fa-arrows-rotate"></i></button>
@@ -43,14 +48,13 @@
                     <p>Be the first one to post</p>
                 </div>
                 <div class="dataFound">
-                    <ul id="taskList">
-                        <li class="task" id="task0">
-                                <a class="link" target="_blank"></a>
-                                <button type="button" class="btn" id="favBtn"><i class="fa-regular fa-star"></i></button>
-                                <button type="button" class="btn" id="deleteBtn"><i
-                                        class="fa-solid fa-trash"></i></button>
-                        </li>
-                    </ul>
+                    <div id="taskList">
+                        <div class="task" id="task0">
+                            <a href="" class="link" target="_blank"></a>
+                            <button type="button" class="btn" id="favBtn"><i class="fa-regular fa-star"></i></button>
+                            <button type="button" class="btn" id="deleteBtn"><i class="fa-solid fa-trash"></i></button>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

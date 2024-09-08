@@ -10,55 +10,100 @@ const favBtn = document.getElementById('favBtn');
 const delBtn = document.getElementById('deleteBtn');
 const taskForm = document.getElementById('taskForm');
 const searchForm = document.getElementById('searchForm');
+const found = document.querySelector('.dataFound');
+const empty = document.querySelector('.empty');
 
-let classId;
+let currentClassIndex, classId;
+
+class classTask {
+    constructor(classId) {
+        this.id = classId;
+        this.tasks = [];
+        this.taskCount = 0;
+
+    }
+    pushTask(link) {
+        const newTask = task.cloneNode(true);
+
+        newTask.querySelector('.link').href = link;
+        newTask.querySelector('.link').textContent = link;
+        newTask.id = `task${this.taskCount}`;
+        this.taskCount++;
+        this.tasks.push(newTask);
+    }
+}
 
 let data = [];
 
 
-searchForm.addEventListener("submit", (e)=>{
+function displaySavedData(index) {
+    console.log(index);
+
+    const objTasks = data[index].tasks;
+    taskList.replaceChildren();
+
+    for (let i = 0; i < objTasks.length; i++) {
+        taskList.appendChild(objTasks[i]);
+    }
+
+    empty.style.display = 'none';
+    found.style.display = "block";
+}
+
+
+searchForm.addEventListener("submit", (e) => {
     e.preventDefault();
+
     classId = classIdSearchBar.value;
     headingText.textContent = "Class";
     classIdLabel.textContent = classId;
+
+    document.querySelector('.initial').style.display = 'none';
+    document.querySelector('.data').style.display = 'block';
+
+    for (let i = 0; i < data.length; i++) {
+
+        if (classId === data[i].id) {
+            currentClassIndex = i;
+            displaySavedData(i);
+            return;
+        }
+    }
+
+    empty.style.display = 'block';
+    found.style.display = "none";
+    currentClassIndex = data.length;
 });
 
-searchForm.addEventListener("reset", (e)=>{
-    e.preventDefault();
+
+searchForm.addEventListener("reset", (e) => {
     classId = "";
     headingText.textContent = "Enter";
     classIdLabel.textContent = "Class ID";
     classIdSearchBar.value = "";
+
+    document.querySelector('.initial').style.display = 'block';
+    document.querySelector('.data').style.display = 'none';
 });
 
-taskForm.addEventListener("submit",(e)=>{
+
+taskForm.addEventListener("submit", (e) => {
+
     e.preventDefault();
     const link = addTaskInput.value;
-    addTask(link);
+    addTaskInput.value = '';
 
-    console.log("added");
-    
+    if (!classId) {
+        window.alert('Enter Class Id first');
+    }
+    else {
+        if (currentClassIndex != data.length) {
+            data[currentClassIndex].pushTask(link);
+        }
+        else {
+            data.push(new classTask(classId));
+            data[currentClassIndex].pushTask(link);
+        }
+    }
+    displaySavedData(currentClassIndex);
 })
-
-function addTask(text){
-    // if(classId in data){
-    let i=3;
-    // }
-    // else{
-        const newTask = task.cloneNode(true);
-        console.log(newTask.childNodes);
-        
-        newTask.firstChild.href = text;
-        newTask.firstChild.textContent = text;
-        
-        newTask.id = `task${i}`;
-
-        document.getElementById('taskList').appendChild(newTask);
-        
-    // }
-        
-}
-
-
-
-
